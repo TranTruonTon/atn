@@ -2,20 +2,27 @@
         
            
         <div class="container">
+
             <div class= "main-top">
                 <img src="http://gundamchat.com/wp-content/uploads/2020/09/banner-m%C3%B4-h%C3%ACnh-one-piece-gundamchat-2.jpg" width="1300px" height="600px">
             </div>
+            <div class="box-nav d-flex justify-between">
+                <a href="/product/create" class="border-shadow">
+                    <span class="text-gradient"><i class="fas fa-angle-double-left"></i>Add Product </span>
+                </a>
+            </div>
             <div class="row">
                 {{#each products}}
-                    <div class="col">                      
-                        <img width="281.25px" height="375px" src="{{this.Links}}" />                        
+                    <div class="col">
+                        <a href = "order"> <img width="281.25px" height="375px" src="{{this.Links}}" /> </a>                      
+                                              
                         <h3 class= "h3-title">{{this.TenSP}}</h3>
                         <div class="wp-price">
                             <div class="price">                               
-                                <span class="ins"> {{this.GiaBan}}</span>
-                                <span class="del">{{this.GiaGoc}}</span>                                
+                                <span class="ins"> {{this.GiaBan}} đ</span>
+                                <span class="del">{{this.GiaGoc}} đ</span>                                
                             </div>  
-                            <span><button onclick="themvao ( '{{this.MaSP}}', '{{this.TenSP}}', '{{this.GiaBan}}')">Add product</button></span>
+                            <span><button class="btn btn-success" onclick="themvao ( '{{this.MaSP}}','{{this.Links}}', '{{this.GiaBan}}','{{this.TenSP}}')"> Add product</button></span>
 
                         </div>
                     </div>
@@ -33,14 +40,14 @@
     const  dict = new Map();
     const  setSP = new Set();
     sl = 0;
-    function themvao(masp, tensp, giaban) {
+    function themvao(masp, tensp, giaban,links) {
         sl++;
         if (setSP.has(masp)) {
             x = dict.get( masp );
             x[2]++;
             dict.set( masp, x );
         } else {
-            dict.set( masp, [tensp, giaban, 1] );
+            dict.set( masp, [ tensp, giaban, 1, links] );
             setSP.add(masp);
         }
         console.log(dict);
