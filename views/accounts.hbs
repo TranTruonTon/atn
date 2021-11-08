@@ -1,0 +1,33 @@
+
+
+        <H1>
+            [Admin] Accounts Management! 
+        </H1>
+
+
+        <div class="container">
+            <div class="add-account">
+                    <a href="http://localhost:8080/account/create">Create New Account</a>
+            </div>
+            <div class="row">
+                {{#each accounts}}
+                    <div class="col-4"> 
+                        <img style= "border-radius: 30px;" width="150px" src="{{this.imglink}}"  />
+                        <p><b>Account: </b>{{this.UserName}}</p>
+                            <b>Role: </b>{{this.Role}}
+                        <p><b>Full Name: </b>{{this.FullName}}</p>
+                        <div class="change">
+                            <ul>
+                                <a class="btn btn-primary" href="#" role="button">Update</a>
+
+                                <a class="btn btn-danger" href="#" role="button">Delete</a>
+                            </ul>
+                        </div>                         
+                    </div> 
+                   
+                {{/each}}
+               
+            </div>
+           
+        </div>
+

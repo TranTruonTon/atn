@@ -1,0 +1,45 @@
+
+        <H1 class="btn-success">
+            [Admin] User Management ! 
+        </H1>
+
+
+        <div class="container">
+            <div>
+                <a class="btn btn-success" href="/user/create" role="button">Add new user</a>                  
+            </div>
+            <div class="row">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col"><b>#</b></th>
+                            <th scope="col"><b>UserName</b></th>
+                            <th scope="col"><b>Password</b></th>
+                            <th scope="col"><b>Password</b></th>
+                            <th scope="col"><b>Email</b></th>
+                            <th scope="col"><b>PhoneNumber</b></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each user}}
+                            <tr>
+                            <th scope="row"> {{@key}}</th>
+                            <td>>{{this.UserName}}</td>
+                            <td>{{this.Password}}</td>
+                            <td>{{this.FullName}}</td>
+                            <td>{{this.Email}}</td>
+                            <td>{{this.PhoneNumber}}</td>
+                            <td>
+
+                                <a class="btn btn-primary" href="#" role="button">Update</a>
+
+                                <a class="btn btn-danger" href="#" role="button">Delete</a>
+
+
+                            </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+            </div>
+        </div>

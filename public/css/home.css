@@ -1,0 +1,26 @@
+body{
+    background-image: url("https://phunugioi.com/wp-content/uploads/2020/02/mau-background-dep-820x513.jpg");
+    
+}
+
+
+.carousel{
+    width: 50%;
+    padding-top: 10px;
+    margin:auto;
+    
+}
+
+.row{
+    width: 80%;
+    margin:auto;
+}
+.image-carousel img{
+    height: 750px;
+    width: 80%;
+}
+
+.img-row {
+    height: 300px;
+    width: 100%;
+}

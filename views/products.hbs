@@ -1,0 +1,62 @@
+
+        
+           
+        <div class="container">
+            <div class= "main-top">
+                <img src="http://gundamchat.com/wp-content/uploads/2020/09/banner-m%C3%B4-h%C3%ACnh-one-piece-gundamchat-2.jpg" width="1300px" height="600px">
+            </div>
+            <div class="row">
+                {{#each products}}
+                    <div class="col">                      
+                        <img width="281.25px" height="375px" src="{{this.Links}}" />                        
+                        <h3 class= "h3-title">{{this.TenSP}}</h3>
+                        <div class="wp-price">
+                            <div class="price">                               
+                                <span class="ins"> {{this.GiaBan}}</span>
+                                <span class="del">{{this.GiaGoc}}</span>                                
+                            </div>  
+                            <span><button onclick="themvao ( '{{this.MaSP}}', '{{this.TenSP}}', '{{this.GiaBan}}')">Add product</button></span>
+
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <form action="/order/review" method="POST" id="submitOrder">
+            <input type="text" hidden id="dshang" name="dshang">
+        </form>
+
+
+
+<script>
+    const  dict = new Map();
+    const  setSP = new Set();
+    sl = 0;
+    function themvao(masp, tensp, giaban) {
+        sl++;
+        if (setSP.has(masp)) {
+            x = dict.get( masp );
+            x[2]++;
+            dict.set( masp, x );
+        } else {
+            dict.set( masp, [tensp, giaban, 1] );
+            setSP.add(masp);
+        }
+        console.log(dict);
+        console.log(JSON.stringify(Array.from(dict.entries()) ) );
+        
+        
+        var elem = document.getElementById("soluong");
+        elem.innerText = "" + sl + " , " + dict.size + " loai"; 
+
+    }
+
+    function showgiohang() {        
+        console.log(dict);
+        var elem = document.getElementById("dshang");
+        elem.value = JSON.stringify(Array.from(dict.entries()) ) ;
+        var xform = document.getElementById("submitOrder");
+        xform.submit();
+    }
+</script>
